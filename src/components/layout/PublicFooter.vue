@@ -1,10 +1,16 @@
+<script setup lang="ts">
+const year = new Date().getFullYear()
+</script>
+
 <template>
-  <footer class="row w-col-12">
-    <div class="w-col-12 w-col-md-6">
-      <div class="row items-center">
-        This is a footer
-        <button class="i-bx-sun dark:i-bx-moon rounded-full text-xl cursor-pointer" @click="toggleDark()" />
-      </div>
+  <footer class="py-8 px-6 backdrop-blur-sm bg-white dark:bg-dark-accent h-$footer-height">
+    <div class="items-center justify-center mx-auto opacity-50 flex">
+      <span class="text-sm">
+        <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" style="color:inherit" class="!font-normal">
+          CC BY-NC-SA 4.0
+        </a>
+        {{ year }} © Douglas Ochner
+      </span>
     </div>
   </footer>
 </template>

@@ -1,11 +1,13 @@
 <template>
-  <div>
-    <div class="container">
+  <DPage>
+    <div class="container mx-auto">
       <div class="row">
-        <div class="col-12">
-          <h1>Home</h1>
+        <div class="w-col-12">
+          <h1 class="font-display text-4xl font-bold text-center">
+            Bem vindo a Dcommerce! 🚀
+          </h1>
         </div>
       </div>
     </div>
-  </div>
+  </DPage>
 </template>

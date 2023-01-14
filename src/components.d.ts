@@ -7,11 +7,17 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    DBtn: typeof import('./components/atoms/DBtn.vue')['default']
+    DButtonShoppingBag: typeof import('./components/atoms/DButtonShoppingBag.vue')['default']
+    DCard: typeof import('./components/atoms/DCard.vue')['default']
     DLayout: typeof import('./components/layout/DLayout.vue')['default']
+    DPage: typeof import('./components/layout/DPage.vue')['default']
     DPageContainer: typeof import('./components/layout/DPageContainer.vue')['default']
     DSeparator: typeof import('./components/atoms/DSeparator.vue')['default']
+    DToggleDark: typeof import('./components/atoms/DToggleDark.vue')['default']
     PublicFooter: typeof import('./components/layout/PublicFooter.vue')['default']
     PublicHeader: typeof import('./components/layout/PublicHeader.vue')['default']
+    PublicMenu: typeof import('./components/layout/PublicMenu.vue')['default']
     README: typeof import('./components/README.md')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

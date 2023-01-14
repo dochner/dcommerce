@@ -84,8 +84,9 @@ export default defineConfig({
       accent: 'linear-gradient(180deg, #31cfb0 0%, #5de563 100%)',
 
       dark: {
-        DEFAULT: '#1D1D20',
-        page: '#121212',
+        DEFAULT: '#1b1b1b',
+        page: '#1c1c1c',
+        accent: '#2e2e2e',
         title: '#010D33',
       },
 
@@ -211,6 +212,7 @@ export default defineConfig({
         mdi: () => import('@iconify-json/mdi/icons.json').then(i => i.default),
         bx: () => import('@iconify-json/bx/icons.json').then(i => i.default),
       },
+      scale: 1.2,
       warn: true,
     }),
     presetTypography(),
