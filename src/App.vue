@@ -5,17 +5,10 @@
 useHead({
   title: 'Dcommerce',
   meta: [
-    { name: 'description', content: 'Opinionated Vite Starter Template' },
+    { name: 'description', content: 'Dcommerce application built for study purposes' },
     {
       name: 'theme-color',
-      content: computed(() => isDark.value ? '#00aba9' : '#ffffff'),
-    },
-  ],
-  link: [
-    {
-      rel: 'icon',
-      type: 'image/svg+xml',
-      href: computed(() => preferredDark.value ? '/favicon-dark.svg' : '/favicon.svg'),
+      content: computed(() => isDark.value ? '#1a1a1a' : '#ffffff'),
     },
   ],
 })

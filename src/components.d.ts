@@ -7,6 +7,11 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    DLayout: typeof import('./components/layout/DLayout.vue')['default']
+    DPageContainer: typeof import('./components/layout/DPageContainer.vue')['default']
+    DSeparator: typeof import('./components/atoms/DSeparator.vue')['default']
+    PublicFooter: typeof import('./components/layout/PublicFooter.vue')['default']
+    PublicHeader: typeof import('./components/layout/PublicHeader.vue')['default']
     README: typeof import('./components/README.md')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

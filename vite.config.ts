@@ -42,7 +42,9 @@ export default defineConfig({
     }),
 
     // https://github.com/JohnCampionJr/vite-plugin-vue-layouts
-    Layouts(),
+    Layouts({
+      defaultLayout: 'public',
+    }),
 
     // https://github.com/antfu/unplugin-auto-import
     AutoImport({
@@ -101,11 +103,11 @@ export default defineConfig({
     // https://github.com/antfu/vite-plugin-pwa
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.svg', 'safari-pinned-tab.svg'],
+      includeAssets: ['favicon.icon', 'apple-touch-icon.png'],
       manifest: {
         name: 'Dcommerce',
         short_name: 'Dcommerce',
-        theme_color: '#ffffff',
+        theme_color: '#1a1a1a',
         icons: [
           {
             src: '/pwa-192x192.png',
