@@ -29,7 +29,7 @@ const classes = computed(() => {
       <div class="text-4xl font-display fw-bold">
         Bem vindo!
 
-        <DBtn round class="text-base px-md mt-md">
+        <DBtn round class="text-base px-md mt-md text-white" color="dark-accent">
           Crie uma conta agora <div class="ml-3 i-mdi-arrow-right" />
         </DBtn>
       </div>

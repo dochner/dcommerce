@@ -44,7 +44,7 @@ const componentIs = computed(() => {
 
 const btnColor = computed(() => {
   if (props.color) {
-    if (['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'].includes(props.color))
+    if (['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark', 'dark-accent'].includes(props.color))
       return `var(--color-${props.color})`
 
     else if (props.color.startsWith('#'))
@@ -57,7 +57,7 @@ const btnColor = computed(() => {
       return props.color
   }
 
-  return isDark.value ? 'var(--color-dark-accent)' : 'transparent'
+  return props.color ? props.color : isDark.value ? 'var(--color-dark-accent)' : 'transparent'
 })
 
 const classes = computed(() => {
@@ -96,7 +96,7 @@ const classes = computed(() => {
 
 <template>
   <component :is="componentIs" :class="classes">
-    <div class="row">
+    <div class="row items-center">
       <slot />
     </div>
   </component>
