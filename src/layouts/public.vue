@@ -5,14 +5,8 @@ const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value
 }
 
-const bodyEl = document.querySelector('body')
-
-watch(isMenuOpen, (value) => {
-  if (value)
-    bodyEl.classList.add('overflow-hidden')
-
-  else
-    bodyEl.classList.remove('overflow-hidden')
+watch(isMenuOpen, () => {
+  document.documentElement.classList.toggle('overflow-hidden', true)
 })
 </script>
 
