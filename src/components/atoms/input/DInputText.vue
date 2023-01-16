@@ -73,7 +73,7 @@ const customClasses = computed(() => [
         </div>
         <div class="d-input-text__control-container row relative no-wrap flex-1">
           <input
-            id="id"
+            :id="id"
             ref="inputRef"
             class="d-input-text__input z-3"
             :type="type"
