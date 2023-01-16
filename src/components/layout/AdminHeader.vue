@@ -22,7 +22,7 @@ const breadcrumbList = computed(() => useRoute().fullPath.split('/').filter(Bool
           </router-link>
 
           <div class="flex-grow" />
-          <DToggleDark class="mr-3" />
+          <DBtnToggleDark class="mr-3" />
         </div>
       </div>
     </div>

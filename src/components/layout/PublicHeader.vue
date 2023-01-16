@@ -15,7 +15,7 @@ defineEmits(['openMenu'])
 
       <div class="flex-grow" />
 
-      <DToggleDark />
+      <DBtnToggleDark />
       <DButtonShoppingBag class="ml-3" />
       <DBtn round class="ml-3" @click="$emit('openMenu')">
         <div class="i-bx-menu" />

@@ -44,7 +44,7 @@ const componentIs = computed(() => {
 
 const btnColor = computed(() => {
   if (props.color) {
-    if (['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark', 'dark-accent'].includes(props.color))
+    if (['primary', 'secondary', 'accent', 'success', 'info', 'warning', 'danger', 'light', 'dark', 'dark-accent'].includes(props.color))
       return `var(--color-${props.color})`
 
     else if (props.color.startsWith('#'))
@@ -72,6 +72,9 @@ const classes = computed(() => {
   if (props.square)
     classes.push('d-btn--square')
 
+  if (props.stretch)
+    classes.push('d-btn--stretch')
+
   if (props.flat)
     classes.push('d-btn--flat')
 
@@ -95,8 +98,8 @@ const classes = computed(() => {
 </script>
 
 <template>
-  <component :is="componentIs" :class="classes">
-    <div class="row items-center">
+  <component :is="componentIs" :class="classes" class="row items-center justify-center">
+    <div class="row items-center w-full d-btn-content">
       <slot />
     </div>
   </component>
@@ -107,11 +110,12 @@ const classes = computed(() => {
   display: flex;
   flex-direction: row;
   box-sizing: border-box;
-  padding: v-bind("padding");
+  padding: v-bind(padding);
   border-radius: 4px;
   background: v-bind("btnColor");
   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px rgba(0, 0, 0, 0.14), 0 1px 10px rgba(0, 0, 0, 0.12);
   transition: all 0.2s ease-in-out;
+  font-weight: 700;
 
   &:active {
     --btn-background-opacity: 0.5;
@@ -121,6 +125,15 @@ const classes = computed(() => {
   &--round {
     border-radius: 9999px;
     padding: 0.5rem;
+  }
+
+  &--flat {
+    background: transparent;
+    box-shadow: none;
+  }
+
+  &--stretch {
+    height: 100%;
   }
 }
 </style>

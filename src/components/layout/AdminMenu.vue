@@ -5,21 +5,8 @@ const props = defineProps({
 
 const emit = defineEmits(['update:modelValue'])
 
-const open = computed({
-  get: () => props.modelValue,
-  set: value => emit('update:modelValue', value),
-})
-
-const toggle = () => {
-  open.value = !open.value
-}
-
-const openClass = computed(() => {
-  return open.value ? 'open' : ''
-})
-
 const classes = computed(() => {
-  return `d-sidebar ${openClass.value}`
+  return `d-sidebar ${props.modelValue ? 'open' : ''}`
 })
 
 const navList = computed(() => {
@@ -70,11 +57,11 @@ const navList = computed(() => {
 </script>
 
 <template>
-  <aside :class="classes" class="relative w-$sidebar-width border py-8 shadow-1 border-$c-border w-full md:w-$sidebar-width">
+  <aside :class="classes" class="md:relative w-full border py-8 shadow-1 border-$c-border w-full md:w-$sidebar-width">
     <div class="row items-center">
-      <h1 class="text-dark fw-300 dark:text-light-800 font-display">
+      <!-- <h1 class="text-dark fw-300 dark:text-light-800 font-display">
         Bem vindo!
-      </h1>
+      </h1> -->
     </div>
 
     <nav class="absolute top-$header-height left-0 w-full overflow-y-scroll">
@@ -97,6 +84,12 @@ const navList = computed(() => {
 
   nav {
     padding: 1.5rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    top: 0;
+    left: 0;
+    position: fixed;
   }
 }
 </style>
