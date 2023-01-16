@@ -7,8 +7,8 @@ const toggleMenu = () => {
 </script>
 
 <template>
-  <div class="min-h-screen grid grid-cols-[auto_1fr]">
-    <AdminMenu :model-value="isMenuOpen" />
+  <div class="min-h-screen grid md:grid-cols-[auto_1fr]">
+    <AdminMenu v-model="isMenuOpen" />
 
     <DLayout>
       <AdminHeader @open-menu="toggleMenu" />
