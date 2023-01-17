@@ -1,5 +1,5 @@
 <script setup>
-defineProps({
+const props = defineProps({
   padding: {
     type: String,
     default: '0',
@@ -10,9 +10,8 @@ defineProps({
   bordered: Boolean,
 })
 
-const classes = computed(() => {
+const customClasses = computed(() => {
   return [
-    'd-card',
     props.square ? 'd-card--square' : '',
     props.flat ? 'd-card--flat' : '',
     props.bordered ? 'd-card--bordered' : '',
@@ -21,7 +20,7 @@ const classes = computed(() => {
 </script>
 
 <template>
-  <div class="d-card  bg-white shadow-2 align-top relative dark:bg-dark-light dark:shadow-dark-2" :un-border="bordered ? 'rounded-none' : 'rounded-lg'">
+  <div class="d-card  bg-white shadow-2 align-top relative dark:bg-dark-light dark:shadow-dark-2" :un-border="bordered ? 'rounded-none' : 'rounded-lg'" :class="customClasses">
     <slot />
   </div>
 </template>
@@ -72,6 +71,10 @@ const classes = computed(() => {
 
   &--bordered {
     border: 1px solid var(--c-border);
+  }
+
+  &--flat {
+    box-shadow: none !important;
   }
 
   &__section {

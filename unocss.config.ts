@@ -35,7 +35,7 @@ export default defineConfig({
     { row: 'flex flex-wrap flex-row w-auto min-w-0 max-w-full' },
     { column: 'flex flex-wrap flex-col h-auto min-h-0 max-h-full' },
     { 'no-wrap': 'flex-nowrap' },
-    { 'text-card-title': 'text-primary text-base fw-medium' },
+    { 'text-card-title': 'text-base font-display font-medium tracking-wide' },
     { 'home-section-title': 'font-display text-dark text-2xl font-medium' },
     { 'text-paragraph': 'text-dark text-lg mb-md' },
     { link: 'underline underline-dashed underline-offset-3 ' },

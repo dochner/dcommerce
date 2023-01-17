@@ -17,20 +17,20 @@ const setValue = (value) => {
 </script>
 
 <template>
-  <div class="d-expansion-item" @click="setValue(!isOpen)">
-    <div class="d-expansion-wrapper">
-      <div class="d-expansion-item-header !hover:text-primary">
+  <div class="d-expansion-item" :class="isOpen ? 'is-open' : ''" @click="setValue(!isOpen)">
+    <div class="d-expansion-wrapper relative outline-0">
+      <div class="d-expansion-item-header transition-all min-h-12 duration-150 row items-center" :class="headerClass">
         <slot name="label">
           {{ label }}
         </slot>
-        <div class="d-expansion-item-header-icon">
+        <div class="d-expansion-item-header-icon transition-all">
           <slot name="icon">
-            <i class="i-mdi-chevron-down transition-transform duration-150 rotate-0" :class="isOpen ?? 'rotate-180'" />
+            <i class="i-mdi-chevron-down transition-transform duration-150 rotate-0" />
           </slot>
         </div>
       </div>
       <DSlideTransition @click.stop="() => {}">
-        <div v-show="isOpen">
+        <div v-show="isOpen" class="contentClass">
           <slot />
         </div>
       </DSlideTransition>
@@ -47,7 +47,6 @@ const setValue = (value) => {
       justify-content: space-between;
       cursor: pointer;
       padding: 4px 16px;
-      color: var(--color-primary);
 
       .d-expansion-item-header-icon {
         display: flex;
@@ -56,8 +55,13 @@ const setValue = (value) => {
         width: 2rem;
         height: 2rem;
         border-radius: 50%;
-        transition: background-color 0.3s ease-in-out;
       }
+    }
+  }
+
+   &.is-open {
+    .d-expansion-item-header-icon {
+      transform: rotate(180deg)
     }
   }
 }

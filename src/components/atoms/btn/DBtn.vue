@@ -98,7 +98,7 @@ const classes = computed(() => {
 </script>
 
 <template>
-  <component :is="componentIs" :class="classes" class="row items-center justify-center">
+  <component v-bind="props" :is="componentIs" :class="classes" class="row items-center justify-center">
     <div class="row items-center w-full d-btn-content">
       <slot />
     </div>

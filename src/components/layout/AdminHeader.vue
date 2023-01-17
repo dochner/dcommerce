@@ -15,7 +15,7 @@ const breadcrumbList = computed(() => useRoute().fullPath.split('/').filter(Bool
             <div class="i-bx-menu" />
           </DBtn>
 
-          <router-link class="text-2xl font-bold select-none outline-none" to="/" focusable="false">
+          <router-link class="text-2xl font-bold select-none outline-none" to="/admin" focusable="false">
             <h1 class="text-dark fw-300 dark:text-light-800 font-display">
               DCommerce
             </h1>

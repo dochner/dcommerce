@@ -23,6 +23,10 @@ const props = defineProps({
   readonly: Boolean,
   disabled: Boolean,
   autofocus: Boolean,
+  autocomplete: {
+    type: String,
+    default: 'off',
+  },
   form: String,
   hideBottomSpace: Boolean,
 })
@@ -63,11 +67,11 @@ const customClasses = computed(() => [
 <template>
   <div class="d-input-text row no-wrap items-start text-base w-full relative box-border" :class="customClasses">
     <div class="d-input-text__wrapper self-stretch w-full">
-      <label class="d-input-text__label px-2 transition-all duration-150 origin-left" :for="id" :class="!!$slots.prepend ? 'd-input-text__label-away' : ''">
+      <label class="d-input-text__label px-2 transition-all duration-250 origin-left" :for="id" :class="!!$slots.prepend ? 'd-input-text__label-away' : ''">
         {{ label }}
       </label>
 
-      <div class="d-input-text__control relative row no-wrap border-2 border-$c-border transition-all duration-150">
+      <div class="d-input-text__control relative row no-wrap border-2 border-$c-border transition-all duration-250">
         <div v-if="$slots.prepend" class="text-2xl d-input-text__prepend d-input-text__marginal row no-wrap items-center !pr-3">
           <slot name="prepend" />
         </div>
@@ -77,6 +81,7 @@ const customClasses = computed(() => [
             ref="inputRef"
             class="d-input-text__input z-3"
             :type="type"
+            :autocomplete="autocomplete"
             :placeholder="placeholder"
             :readonly="readonly"
             :disabled="disabled"
@@ -107,6 +112,8 @@ const customClasses = computed(() => [
 </template>
 
 <style lang="scss">
+$primary: var(--color-primary);
+
 .d-input-text {
   &__wrapper {
     text-align: left;
@@ -210,13 +217,20 @@ const customClasses = computed(() => [
     }
   }
 
+  &:hover & {
+    &__control {
+      border-color: rgba(0,0,0,.42);
+    }
+  }
+
+  &:focus &,
   &--focused & {
     &__label {
       color: var(--color-primary) !important;
     }
 
     &__control {
-      border-color: var(--color-primary);
+      border-color: var(--color-primary) !important;
     }
   }
 

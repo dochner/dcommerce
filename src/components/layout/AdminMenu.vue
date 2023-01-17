@@ -57,15 +57,21 @@ const navList = computed(() => {
 </script>
 
 <template>
-  <aside :class="classes" class="md:relative w-full border py-8 shadow-1 border-$c-border w-full md:w-$sidebar-width">
-    <div class="row items-center">
-      <!-- <h1 class="text-dark fw-300 dark:text-light-800 font-display">
-        Bem vindo!
-      </h1> -->
+  <aside :class="classes" class="md:relative w-full border py-8 shadow-1 border-$c-border w-full md:w-$sidebar-width z-9972">
+    <div class="items-center row relative md:hidden px-10">
+      <router-link class="text-2xl font-bold select-none outline-none" to="/admin" focusable="false">
+        <h1 class="text-dark fw-300 dark:text-light-800 font-display">
+          DCommerce
+        </h1>
+      </router-link>
+
+      <DBtn round class="ml-auto" @click="$emit('update:modelValue', false)">
+        <div class="i-mdi-close" />
+      </DBtn>
     </div>
 
     <nav class="absolute top-$header-height left-0 w-full overflow-y-scroll">
-      <DNavList :items="navList" label="Menu" />
+      <DNavList :items="navList" label="Menu" @switch="$emit('update:modelValue', false)" />
     </nav>
   </aside>
 </template>
@@ -73,22 +79,25 @@ const navList = computed(() => {
 <style lang="scss">
 .d-sidebar {
   overflow-y: auto;
-  transition: width 0.3s ease-in-out;
+  transition: width 0.3s ease-in, opacity 0.15s ease-in;
   transform-origin: left;
   will-change: transform;
+  background-color: #ffffff;
 
   &.open {
     width: 0;
-    transform: scaleX(0);
+    opacity: 0;
   }
 
   nav {
     padding: 1.5rem;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1240px) {
     top: 0;
     left: 0;
+    height: 100%;
+    width: 100%;
     position: fixed;
   }
 }
